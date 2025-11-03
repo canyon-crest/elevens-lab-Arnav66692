@@ -76,11 +76,9 @@ public class Card1 {
 	 *         false otherwise.
 	 */
 	public boolean matches(Card otherCard) {
-    if(otherCard.suit().equals(this.suit()) && otherCard.rank().equals(this.rank()) && otherCard.pointValue() == this.pointValue())
-      return true;
-    else
-      return false;
-  }
+    	if(otherCard.suit().equals(this.suit()) && otherCard.rank().equals(this.rank()) && otherCard.pointValue() == this.pointValue()) return true;
+    	else return false;
+  	}
 
 	/**
 	 * Converts the rank, suit, and point value into a string in the format
@@ -94,6 +92,6 @@ public class Card1 {
 	 */
 	@Override
 	public String toString() {
-    return rank + " of " + suit + " (point value = " + pointValue + ")";
-  }
+    	return rank + " of " + suit + " (point value = " + pointValue + ")";
+  	}
 }
