@@ -1,49 +1,84 @@
 package Activity2;
-import java.util.List;
-import java.util.ArrayList;
-
 /**
- * The Deck class represents a shuffled deck of cards.
- * It provides several operations including
- *      initialize, shuffle, deal, and check if empty.
- */
-public class Deck2 {
-
+* Card.java
+*
+* <code>Card</code> represents a playing card.
+*/
+public class Card2 {
 	/**
-	 * cards contains all the cards in the deck.
+	 * String value that holds the suit of the card
 	 */
-	private List<Card2> cards;
-
+	private String suit;
 	/**
-	 * size is the number of not-yet-dealt cards.
-	 * Cards are dealt from the top (highest index) down.
-	 * The next card to be dealt is at size - 1.
+	 * String value that holds the rank of the card
 	 */
-	private int size;
-
-
+	private String rank;
 	/**
-	 * Creates a new <code>Deck</code> instance.<BR>
-	 * It pairs each element of ranks with each element of suits,
-	 * and produces one of the corresponding card.
-	 * @param ranks is an array containing all of the card ranks.
-	 * @param suits is an array containing all of the card suits.
-	 * @param values is an array containing all of the card point values.
+	 * int value that holds the point value.
 	 */
-	public Deck2(String[] ranks, String[] suits, int[] values) {
-		for (int i=0; i<ranks.length; i++) {
-			for (String suit : suits) {
-				cards.add(new Card2(ranks[i], suit, values[i]));
-			}
-		}
+	private int pointValue;
+  /**
+	 * Creates a new <code>Card</code> instance.
+	 *
+	 * @param cardRank  a <code>String</code> value
+	 *                  containing the rank of the card
+	 * @param cardSuit  a <code>String</code> value
+	 *                  containing the suit of the card
+	 * @param cardPointValue an <code>int</code> value
+	 *                  containing the point value of the card
+	 */
+	public Card2(String cardRank, String cardSuit, int cardPointValue) {
+		//initializes a new Card with the given rank, suit, and point value
+		rank = cardRank;
+		suit = cardSuit;
+		pointValue = cardPointValue;
 	}
-
-
 	/**
-	 * Determines if this deck is empty (no undealt cards).
-	 * @return true if this deck is empty, false otherwise.
+	 * Accesses this <code>Card's</code> suit.
+	 * @return this <code>Card's</code> suit.
 	 */
-	public boolean isEmpty() {
-		return cards.size() == 0;
+	public String suit() {
+		return suit;
 	}
+	/**
+	 * Accesses this <code>Card's</code> rank.
+	 * @return this <code>Card's</code> rank.
+	 */
+	public String rank() {
+		return rank;
+	}
+  /**
+	 * Accesses this <code>Card's</code> point value.
+	 * @return this <code>Card's</code> point value.
+	 */
+	public int pointValue() {
+		return pointValue;
+	}
+	/** Compare this card with the argument.
+	 * @param otherCard the other card to compare to this
+	 * @return true if the rank, suit, and point value of this card
+	 *              are equal to those of the argument;
+	 *         false otherwise.
+	 */
+	public boolean matches(Card2 otherCard) {
+		return otherCard.suit().equals(this.suit())
+			&& otherCard.rank().equals(this.rank())
+			&& otherCard.pointValue() == this.pointValue();
+	}
+	/**
+	 * Converts the rank, suit, and point value into a string in the format
+	 *     "[Rank] of [Suit] (point value = [PointValue])".
+	 * This provides a useful way of printing the contents
+	 * of a <code>Deck</code> in an easily readable format or performing
+	 * other similar functions.
+	 *
+	 * @return a <code>String</code> containing the rank, suit,
+	 *         and point value of the card.
+	 */
+	@Override
+	public String toString() {
+		return rank + " of " + suit + " (point value = " + pointValue + ")";
+	}
+}
+
 
