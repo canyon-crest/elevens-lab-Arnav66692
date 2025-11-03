@@ -31,10 +31,11 @@ public class Deck2 {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck2(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		for(int i = 0; i < ranks.length(); i++){
-        	Card card = new Card(ranks[i], suits[i], values[i]);    //Creates new card by matching the params.
-      		cards[i] = card;
+		for (int i=0; i<ranks.length; i++) {
+			for (String suit : suits) {
+				cards.add(new Card2(ranks[i], suit, values[i]));
+			}
+		}
 	}
 
 
@@ -43,8 +44,7 @@ public class Deck2 {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return cards.isEmpty();
+		return cards.size() == 0;
 	}
 
 	/**
@@ -52,7 +52,6 @@ public class Deck2 {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		return cards.size();
 	}
 
@@ -62,12 +61,6 @@ public class Deck2 {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		for(int k = valueCount - 1; k >= 0; k--) {
-            int r = (int)(Math.random() * k);    //Randomizes within the array.
-            int temp = values[r];
-            values[r] = values[k];
-            values[k] = temp;
-		}
 	}
 
 	/**
