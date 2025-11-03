@@ -62,6 +62,12 @@ public class Deck2 {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for(int k = valueCount - 1; k >= 0; k--) {
+            int r = (int)(Math.random() * k);    //Randomizes within the array.
+            int temp = values[r];
+            values[r] = values[k];
+            values[k] = temp;
+		}
 	}
 
 	/**
